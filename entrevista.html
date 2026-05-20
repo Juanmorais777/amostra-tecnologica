@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação Inteligente - ToxoPrev</title>
+  <link rel="icon" type="image/png" href="favicon2 (2).png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --teal-50: #e8f8f3;
+      --teal-100: #c2ecdf;
+      --teal-400: #2fbf8a;
+      --teal-500: #1da874;
+      --teal-600: #15885d;
+      --teal-700: #0d6444;
+      --teal-900: #062e1e;
+
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-400: #94a3b8;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+
+      --accent: #0e9f6e;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--slate-50);
+      color: var(--slate-800);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== TOP BUTTONS ===== */
+    .top-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 12px;
+    }
+
+    .tratamento-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-500);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tratamento-btn:hover {
+      background: var(--teal-600);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .voltar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.18s, transform 0.15s;
+    }
+
+    .voltar-btn:hover {
+      background: var(--slate-100);
+      transform: translateY(-2px);
+    }
+
+    /* ===== ENTREVISTA PAGE ===== */
+    .entrevista-page {
+      padding: 60px 48px 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .entrevista-box {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* ===== TOP INFO ===== */
+    .entrevista-top {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .entrevista-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      color: var(--teal-700);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .entrevista-top h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 400;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .descricao {
+      font-size: 15px;
+      color: var(--slate-600);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ===== PROGRESS ===== */
+    .progress-area {
+      margin-bottom: 32px;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--slate-200);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal-400), var(--teal-600));
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    #porcentagem {
+      font-size: 13px;
+      color: var(--slate-600);
+      font-weight: 500;
+    }
+
+    /* ===== QUESTION CARD ===== */
+    .question-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .question-number {
+      display: inline-block;
+      background: var(--teal-50);
+      color: var(--teal-700);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .question-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 400;
+      color: var(--slate-900);
+      margin-bottom: 28px;
+      line-height: 1.35;
+    }
+
+    /* ===== OPTIONS ===== */
+    .opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate-700);
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, transform 0.15s, color 0.18s;
+    }
+
+    .option-btn:hover {
+      background: var(--teal-50);
+      border-color: var(--teal-400);
+      color: var(--teal-700);
+      transform: translateX(4px);
+    }
+
+    /* ===== NUMBER INPUT ===== */
+    #inputArea input[type="number"] {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--slate-800);
+      background: #fff;
+      margin-bottom: 14px;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    #inputArea input[type="number"]:focus {
+      outline: none;
+      border-color: var(--teal-400);
+      box-shadow: 0 0 0 3px rgba(47,191,138,0.12);
+    }
+
+    .primary-btn {
+      width: 100%;
+      background: var(--teal-500);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .primary-btn:hover {
+      background: var(--teal-600);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13,100,68,0.22);
+    }
+
+    /* ===== RESULTADO ===== */
+    .resultado-final {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .resultado-top {
+      margin-bottom: 32px;
+    }
+
+    .resultado-tag {
+      display: inline-block;
+      background: var(--teal-50);
+      color: var(--teal-700);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .resultado-final h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 400;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+    }
+
+    .alerta-resultado {
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .alerta-resultado h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--teal-700);
+      margin-bottom: 10px;
+    }
+
+    .alerta-resultado p {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.7;
+    }
+
+    .resultado-acoes {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-tratamento {
+      display: inline-flex;
+      align-items: center;
+      background: var(--teal-500);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-tratamento:hover {
+      background: var(--teal-600);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-refazer {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-refazer:hover {
+      background: var(--slate-100);
+      transform: translateY(-2px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .top-buttons { padding: 14px 20px; }
+      .entrevista-page { padding: 36px 20px 60px; }
+      .question-card { padding: 28px 20px; }
+      .resultado-final { padding: 32px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BUTTONS -->
+  <div class="top-buttons">
+    <a href="tratamento.html" class="tratamento-btn">Ver Possíveis Tratamentos</a>
+    <a href="index.html" class="voltar-btn">⬅ Voltar ao início</a>
+  </div>
+
+  <!-- ENTREVISTA -->
+  <section class="entrevista-page">
+    <div class="entrevista-box">
+
+      <div class="entrevista-top">
+        <span class="entrevista-tag">Entrevista Inteligente</span>
+        <h2>Avaliação de Risco de Toxoplasmose</h2>
+        <p class="descricao">
+          Responda as perguntas abaixo para realizar uma análise detalhada
+          sobre hábitos, rotina, sintomas e possíveis riscos relacionados
+          à toxoplasmose.
+        </p>
+      </div>
+
+      <!-- PROGRESSO -->
+      <div class="progress-area">
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <span id="porcentagem">0% concluído</span>
+      </div>
+
+      <!-- ÁREA -->
+      <div id="entrevistaArea">
+        <div class="question-card">
+          <span class="question-number" id="numeroPergunta">Pergunta 1</span>
+          <h3 id="pergunta">Carregando pergunta...</h3>
+          <div id="inputArea"></div>
+          <div class="opcoes" id="opcoes"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const perguntas = [
+      { pergunta: "Você possui contato frequente com gatos?", tipo: "opcoes", opcoes: ["Sim", "Não", "Talvez"] },
+      { pergunta: "Você limpa caixa de areia de gatos?", tipo: "opcoes", opcoes: ["Frequentemente", "Raramente", "Nunca"] },
+      { pergunta: "Você costuma consumir carne mal passada?", tipo: "opcoes", opcoes: ["Frequentemente", "Raramente", "Nunca"] },
+      { pergunta: "Você lava frutas e verduras antes de comer?", tipo: "opcoes", opcoes: ["Sim", "Não"] },
+      { pergunta: "Você bebe água filtrada?", tipo: "opcoes", opcoes: ["Sempre", "Às vezes", "Nunca"] },
+      { pergunta: "Você já teve febre recentemente?", tipo: "opcoes", opcoes: ["Sim", "Não", "Talvez"] },
+      { pergunta: "Você sente dores musculares frequentemente?", tipo: "opcoes", opcoes: ["Sim", "Não"] },
+      { pergunta: "Você apresenta cansaço excessivo?", tipo: "opcoes", opcoes: ["Frequentemente", "Raramente"] },
+      { pergunta: "Você possui sistema imunológico baixo?", tipo: "opcoes", opcoes: ["Sim", "Não", "Não sei"] },
+      { pergunta: "Você já realizou exame para toxoplasmose?", tipo: "opcoes", opcoes: ["Sim", "Não"] },
+      { pergunta: "Quantos gatos existem na sua residência?", tipo: "numero" },
+      { pergunta: "Quantas vezes por semana você consome carne vermelha?", tipo: "numero" },
+      { pergunta: "Você costuma andar descalço em terra ou areia?", tipo: "opcoes", opcoes: ["Frequentemente", "Raramente", "Nunca"] },
+      { pergunta: "Você tem contato com solo ou jardinagem?", tipo: "opcoes", opcoes: ["Sim", "Não", "Às vezes"] },
+      { pergunta: "Você costuma higienizar as mãos antes das refeições?", tipo: "opcoes", opcoes: ["Sempre", "Às vezes", "Nunca"] }
+    ];
+
+    let perguntaAtual = 0;
+    let respostas = [];
+
+    const perguntaEl    = document.getElementById("pergunta");
+    const opcoesEl      = document.getElementById("opcoes");
+    const inputArea     = document.getElementById("inputArea");
+    const numeroPergEl  = document.getElementById("numeroPergunta");
+    const progressEl    = document.getElementById("progress");
+    const porcentagemEl = document.getElementById("porcentagem");
+    const entrevistaArea = document.getElementById("entrevistaArea");
+
+    function carregarPergunta() {
+      const atual = perguntas[perguntaAtual];
+      perguntaEl.innerHTML = atual.pergunta;
+      numeroPergEl.innerHTML = `Pergunta ${perguntaAtual + 1}`;
+      opcoesEl.innerHTML = "";
+      inputArea.innerHTML = "";
+      atualizarProgresso();
+
+      if (atual.tipo === "opcoes") {
+        atual.opcoes.forEach(opcao => {
+          const btn = document.createElement("button");
+          btn.classList.add("option-btn");
+          btn.innerHTML = opcao;
+          btn.onclick = () => salvarResposta(opcao);
+          opcoesEl.appendChild(btn);
+        });
+      }
+
+      if (atual.tipo === "numero") {
+        inputArea.innerHTML = `<input type="number" id="respostaNumero" placeholder="Digite um número">`;
+        opcoesEl.innerHTML = `<button class="primary-btn" onclick="enviarNumero()">Continuar</button>`;
+      }
+    }
+
+    function salvarResposta(resposta) {
+      respostas.push({ pergunta: perguntas[perguntaAtual].pergunta, resposta });
+      perguntaAtual++;
+      if (perguntaAtual < perguntas.length) {
+        carregarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function enviarNumero() {
+      const valor = document.getElementById("respostaNumero").value;
+      if (valor === "") { alert("Digite um número!"); return; }
+      salvarResposta(valor);
+    }
+
+    function atualizarProgresso() {
+      const porcento = (perguntaAtual / perguntas.length) * 100;
+      progressEl.style.width = `${porcento}%`;
+      porcentagemEl.innerHTML = `${Math.round(porcento)}% concluído`;
+    }
+
+    function mostrarResultado() {
+      progressEl.style.width = "100%";
+      porcentagemEl.innerHTML = "100% concluído";
+
+      entrevistaArea.innerHTML = `
+        <div class="resultado-final">
+          <div class="resultado-top">
+            <span class="resultado-tag">Avaliação Finalizada</span>
+            <h2>Resultado da Entrevista</h2>
+          </div>
+          <div class="alerta-resultado">
+            <h3>✅ Suas respostas foram registradas.</h3>
+            <p>
+              Essa avaliação ajuda a identificar possíveis fatores de risco
+              relacionados à toxoplasmose. Consulte um profissional de saúde
+              para uma avaliação completa.
+            </p>
+          </div>
+          <div class="resultado-acoes">
+            <a href="tratamento.html" class="btn-tratamento">Ver Tratamentos</a>
+            <button class="btn-refazer" onclick="reiniciarEntrevista()">Refazer Avaliação</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function reiniciarEntrevista() {
+      perguntaAtual = 0;
+      respostas = [];
+      location.reload();
+    }
+
+    carregarPergunta();
+  </script>
+
+</body>
+</html>

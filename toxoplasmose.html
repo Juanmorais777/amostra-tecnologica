@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O que é Toxoplasmose? — ToxoPrev</title>
+  <link rel="icon" type="image/png" href="favicon2 (2).png">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --teal-50: #e8f8f3;
+      --teal-100: #c2ecdf;
+      --teal-400: #2fbf8a;
+      --teal-500: #1da874;
+      --teal-600: #15885d;
+      --teal-700: #0d6444;
+      --teal-900: #062e1e;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-400: #94a3b8;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --accent: #0e9f6e;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--slate-50);
+      color: var(--slate-800);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--teal-700);
+      color: #fff;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .top-bar span {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; }
+
+    .logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo h1 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--slate-900);
+      letter-spacing: -0.01em;
+    }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate-600);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: background 0.18s, color 0.18s;
+    }
+
+    nav a:hover { background: var(--slate-100); color: var(--slate-900); }
+
+    nav a.nav-cta {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: var(--radius-md);
+      transition: background 0.18s, transform 0.12s;
+    }
+
+    nav a.nav-cta:hover { background: var(--teal-600); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero-strip {
+      padding: 96px 8% 72px;
+      background: linear-gradient(160deg, var(--teal-700) 0%, var(--teal-900) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(47,191,138,0.18) 0%, transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(14,159,110,0.14) 0%, transparent 50%);
+    }
+
+    .hero-strip::after {
+      content: "🦠";
+      position: absolute;
+      font-size: 280px;
+      opacity: 0.04;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-inner { max-width: 760px; position: relative; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.88);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-strip h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-strip h2 em {
+      font-style: italic;
+      color: var(--teal-100);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrapper {
+      background: var(--teal-900);
+      padding: 0 8% 36px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 13px 20px;
+      max-width: 640px;
+      width: 100%;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .search-bar:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .search-icon { font-size: 18px; opacity: 0.6; }
+
+    .search-bar input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+
+    .search-domain {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    /* ── LAYOUT ── */
+    .page-body {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+      padding: 48px 8% 80px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover { box-shadow: var(--shadow-md); }
+    .card:last-child { margin-bottom: 0; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .card-header h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--slate-900);
+      letter-spacing: -0.01em;
+    }
+
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .icon-teal { background: var(--teal-50); border: 1px solid var(--teal-100); }
+    .icon-amber { background: #fffbeb; border: 1px solid #fde68a; }
+
+    .body-text { font-size: 15px; color: var(--slate-600); line-height: 1.9; }
+    .body-text strong { color: var(--slate-800); font-weight: 600; }
+
+    /* ── CICLO ── */
+    .ciclo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .ciclo-item {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .ciclo-item:hover {
+      border-color: var(--teal-100);
+      background: var(--teal-50);
+    }
+
+    .ciclo-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--teal-500);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .ciclo-item h5 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--slate-800);
+      margin-bottom: 7px;
+    }
+
+    .ciclo-item p { font-size: 13px; color: var(--slate-600); line-height: 1.7; }
+
+    /* ── SINTOMAS ── */
+    .sintomas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .sintoma-card {
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      border-radius: var(--radius-md);
+      padding: 20px 14px;
+      text-align: center;
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .sintoma-card:hover {
+      background: var(--teal-500);
+      border-color: var(--teal-500);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .sintoma-card:hover .sintoma-label { color: #fff; }
+
+    .sintoma-icon { font-size: 30px; display: block; margin-bottom: 10px; }
+
+    .sintoma-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700);
+      transition: color 0.2s;
+    }
+
+    /* ── PREVENÇÃO ── */
+    .prevention-list {
+      list-style: none;
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .prevention-list li {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--slate-700);
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .prevention-list li:hover {
+      background: var(--teal-50);
+      border-color: var(--teal-100);
+    }
+
+    .prevention-list li::before {
+      content: "✓";
+      display: inline-flex;
+      width: 20px; height: 20px;
+      background: var(--teal-500);
+      color: #fff;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── ALERTA ── */
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .alert-teal {
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      color: var(--teal-700);
+    }
+
+    .alert-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #78350f;
+    }
+
+    .alert-icon { font-size: 22px; flex-shrink: 0; }
+
+    /* ── SIDEBAR ── */
+    .side-col {
+      position: sticky;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-self: start;
+    }
+
+    .side-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .side-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--slate-700);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    /* ── STATS ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-item {
+      background: var(--teal-50);
+      border: 1px solid var(--teal-100);
+      border-radius: var(--radius-md);
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .stat-value {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--teal-600);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 11px;
+      color: var(--teal-700);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── TAGS ── */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .tag:hover {
+      background: var(--teal-50);
+      color: var(--teal-700);
+      border-color: var(--teal-100);
+    }
+
+    .tag.green {
+      background: var(--teal-50);
+      color: var(--teal-700);
+      border-color: var(--teal-100);
+    }
+
+    .tag.green:hover {
+      background: var(--teal-500);
+      color: #fff;
+      border-color: var(--teal-500);
+    }
+
+    /* ── CTA CARD ── */
+    .cta-card {
+      background: linear-gradient(145deg, var(--teal-600), var(--teal-700));
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .cta-card h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .cta-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--teal-700);
+      padding: 11px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 13px;
+      transition: 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      width: 100%;
+      text-align: center;
+    }
+
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+    /* ── GLOSSÁRIO ── */
+    .glossario-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .glossario-item {
+      padding: 13px 15px;
+      background: var(--slate-50);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--slate-200);
+      transition: 0.2s;
+    }
+
+    .glossario-item:hover {
+      border-color: var(--teal-100);
+      background: var(--teal-50);
+    }
+
+    .glossario-item strong {
+      display: block;
+      font-size: 13px;
+      color: var(--teal-600);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .glossario-item span { font-size: 12px; color: var(--slate-600); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--slate-900);
+      color: var(--slate-400);
+      text-align: center;
+      padding: 36px 48px;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--teal-500), var(--teal-700));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    footer strong {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    footer p { color: var(--slate-400); }
+
+    /* ── RESPONSIVO ── */
+    @media(max-width: 1100px) {
+      .page-body { grid-template-columns: 1fr; }
+      .side-col { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+    }
+
+    @media(max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero-strip { padding: 64px 20px 52px; }
+      .search-wrapper { padding: 0 20px 28px; }
+      .page-body { padding: 32px 20px 60px; }
+      .sintomas-grid { grid-template-columns: repeat(2, 1fr); }
+      .prevention-list { grid-template-columns: 1fr; }
+      .ciclo-grid { grid-template-columns: 1fr; }
+      .side-col { display: flex; flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>Novo</span>
+  Plataforma digital de conscientização e prevenção da toxoplasmose
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🧬</div>
+    <h1>ToxoPrev</h1>
+  </div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="entrevista.html">Avaliação</a>
+    <a href="denuncia.html" class="nav-cta">Denunciar</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero-strip">
+  <div class="hero-inner">
+    <div class="hero-badge">🔬 Base de conhecimento científico</div>
+    <h2>O que é<br><em>Toxoplasmose?</em></h2>
+    <p class="hero-sub">
+      Entenda como a infecção ocorre, quais são os sinais de alerta,
+      os grupos de maior risco e como se proteger com medidas simples no dia a dia.
+    </p>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-wrapper">
+  <div class="search-bar">
+    <span class="search-icon">🔎</span>
+    <input type="text" value="O que é toxoplasmose?" readonly>
+    <span class="search-domain">toxoprev.com.br</span>
+  </div>
+</div>
+
+<!-- CORPO -->
+<main class="page-body">
+
+  <!-- COLUNA PRINCIPAL -->
+  <div class="main-col">
+
+    <!-- SOBRE A DOENÇA -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-teal">🦠</div>
+        <h3>Sobre a doença</h3>
+      </div>
+      <p class="body-text">
+        A <strong>toxoplasmose</strong> é uma infecção parasitária causada pelo
+        <strong>Toxoplasma gondii</strong>, um dos parasitas intracelulares obrigatórios
+        mais prevalentes do planeta. O gato doméstico é o hospedeiro definitivo — onde
+        o parasita completa seu ciclo sexual — e elimina oocistos pelas fezes.
+        Humanos e outros animais de sangue quente são hospedeiros intermediários.
+      </p>
+      <p class="body-text" style="margin-top: 14px;">
+        Estima-se que cerca de <strong>um terço da população mundial</strong>
+        já foi exposta ao parasita — aproximadamente 2 bilhões de pessoas.
+        Na maioria dos casos, o sistema imunológico controla a infecção sem manifestações
+        clínicas. Contudo, em gestantes, recém-nascidos e imunodeprimidos,
+        a doença pode ter consequências graves e irreversíveis.
+      </p>
+      <p class="body-text" style="margin-top: 14px;">
+        O parasita pode persistir no organismo em forma de cistos (fase latente)
+        por toda a vida, podendo ser reativado quando a imunidade é comprometida.
+      </p>
+    </div>
+
+    <!-- CICLO DE VIDA -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-teal">🔄</div>
+        <h3>Ciclo de vida do parasita</h3>
+      </div>
+      <p class="body-text">
+        Compreender o ciclo do <em>Toxoplasma gondii</em> é essencial para
+        entender as formas de transmissão e como interrompê-las.
+      </p>
+      <div class="ciclo-grid">
+        <div class="ciclo-item">
+          <div class="ciclo-num">1</div>
+          <h5>Hospedeiro Definitivo</h5>
+          <p>O gato se infecta ao ingerir carne contaminada. No intestino, o parasita se reproduz sexualmente e elimina oocistos nas fezes.</p>
+        </div>
+        <div class="ciclo-item">
+          <div class="ciclo-num">2</div>
+          <h5>Oocistos no Ambiente</h5>
+          <p>Os oocistos liberados nas fezes esporulam e se tornam infectantes após 1 a 5 dias no ambiente, podendo sobreviver por meses no solo e água.</p>
+        </div>
+        <div class="ciclo-item">
+          <div class="ciclo-num">3</div>
+          <h5>Infecção Humana</h5>
+          <p>Humanos se infectam ao ingerir alimentos ou água contaminados, carne crua com cistos ou por contato com oocistos presentes no solo.</p>
+        </div>
+        <div class="ciclo-item">
+          <div class="ciclo-num">4</div>
+          <h5>Fase Latente</h5>
+          <p>Após a fase aguda, o parasita forma cistos em músculos e cérebro, permanecendo em estado latente por toda a vida do hospedeiro.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SINTOMAS -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-teal">🤒</div>
+        <h3>Sintomas mais comuns</h3>
+      </div>
+      <p class="body-text">
+        Aproximadamente <strong>80% das pessoas</strong> com sistema imune saudável
+        não apresentam sintomas. Quando ocorrem, costumam aparecer de 5 a 23 dias
+        após a exposição e se assemelham a um quadro gripal leve.
+      </p>
+      <div class="sintomas-grid">
+        <div class="sintoma-card">
+          <span class="sintoma-icon">🌡️</span>
+          <span class="sintoma-label">Febre baixa</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">💪</span>
+          <span class="sintoma-label">Dor muscular</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">😮‍💨</span>
+          <span class="sintoma-label">Fadiga intensa</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">🤕</span>
+          <span class="sintoma-label">Cefaleia</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">🫀</span>
+          <span class="sintoma-label">Linfonodomegalia</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">👁️</span>
+          <span class="sintoma-label">Alteração visual</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">🤢</span>
+          <span class="sintoma-label">Náusea</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">🧠</span>
+          <span class="sintoma-label">Confusão mental*</span>
+        </div>
+        <div class="sintoma-card">
+          <span class="sintoma-icon">⚡</span>
+          <span class="sintoma-label">Convulsões*</span>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--slate-400); margin-top: 14px;">
+        * Sintomas graves observados principalmente em imunodeprimidos ou na forma congênita.
+      </p>
+    </div>
+
+    <!-- RISCOS -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-amber">⚠️</div>
+        <h3>Grupos de maior risco</h3>
+      </div>
+      <p class="body-text">
+        A doença pode ser crítica em <strong>gestantes</strong>,
+        <strong>recém-nascidos</strong> e pessoas com <strong>imunidade comprometida</strong>
+        (HIV/AIDS, transplantados, pacientes em quimioterapia). Durante a gestação,
+        a infecção pode ser transmitida verticalmente ao feto e causar complicações
+        neurológicas, oculares e até morte fetal — condição chamada de
+        <strong>toxoplasmose congênita</strong>.
+      </p>
+      <div class="alert alert-amber" style="margin-top: 22px;">
+        <span class="alert-icon">👶</span>
+        <span>
+          <strong>Gestantes:</strong> realize o exame sorológico IgG/IgM no
+          pré-natal. A triagem precoce permite tratamento imediato e reduz
+          significativamente o risco de transmissão ao bebê.
+        </span>
+      </div>
+      <div class="alert alert-teal" style="margin-top: 12px;">
+        <span class="alert-icon">🧬</span>
+        <span>
+          <strong>Toxoplasmose congênita:</strong> pode causar hidrocefalia,
+          calcificações intracranianas, coriorretinite, surdez e déficit cognitivo
+          no recém-nascido, mesmo quando a mãe não apresentou sintomas.
+        </span>
+      </div>
+    </div>
+
+    <!-- PREVENÇÃO -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-teal">🛡️</div>
+        <h3>Como prevenir?</h3>
+      </div>
+      <p class="body-text">
+        A toxoplasmose é <strong>amplamente prevenível</strong> com hábitos
+        simples e acessíveis de higiene e alimentação. As medidas preventivas
+        são especialmente importantes para gestantes e imunodeprimidos:
+      </p>
+      <ul class="prevention-list">
+        <li>Lavar bem frutas, legumes e verduras antes do consumo</li>
+        <li>Consumir apenas água filtrada, fervida ou tratada</li>
+        <li>Evitar carnes cruas ou mal passadas de qualquer espécie</li>
+        <li>Higienizar utensílios e tábuas após contato com carne crua</li>
+        <li>Lavar as mãos após o banheiro e antes das refeições</li>
+        <li>Usar luvas ao mexer com terra, areia ou caixa do gato</li>
+        <li>Limpar a caixa de areia do gato diariamente com luvas</li>
+        <li>Manter gatos domésticos dentro de casa com alimentação adequada</li>
+        <li>Evitar alimentos preparados em locais de higiene duvidosa</li>
+        <li>Lavar as mãos após contato com animais domésticos</li>
+      </ul>
+    </div>
+
+    <!-- DIAGNÓSTICO -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-teal">📋</div>
+        <h3>Diagnóstico e tratamento</h3>
+      </div>
+      <p class="body-text">
+        O diagnóstico é feito principalmente por <strong>sorologia IgG e IgM</strong>.
+        IgM positivo indica infecção recente (aguda); IgG positivo isolado sugere
+        infecção antiga com imunidade adquirida. Em casos duvidosos, pode-se
+        realizar o <strong>teste de avidez de IgG</strong>, que ajuda a distinguir
+        infecção recente de antiga.
+      </p>
+      <p class="body-text" style="margin-top: 14px;">
+        Em gestantes, o acompanhamento é fundamental. Se houver suspeita de
+        infecção fetal, pode ser realizada <strong>amniocentese</strong> com
+        PCR para confirmar. O tratamento com <strong>espiramicina</strong>
+        (1ª escolha na gestação) ou <strong>pirimetamina + sulfadiazina</strong>
+        (casos confirmados de infecção fetal) reduz significativamente os riscos para o bebê.
+      </p>
+      <p class="body-text" style="margin-top: 14px;">
+        Em imunodeprimidos, o tratamento ativo com pirimetamina, sulfadiazina
+        e ácido folínico é essencial para evitar complicações graves como
+        a <strong>encefalite toxoplásmica</strong>.
+      </p>
+      <div class="alert alert-teal" style="margin-top: 22px;">
+        <span class="alert-icon">⚕️</span>
+        <span>
+          Ao apresentar sintomas ou suspeita de contaminação,
+          <strong>procure orientação médica imediatamente.</strong>
+          Não se automedique. O tratamento correto depende do perfil clínico de cada paciente.
+        </span>
+      </div>
+    </div>
+
+  </div><!-- /main-col -->
+
+  <!-- SIDEBAR -->
+  <aside class="side-col">
+
+    <div class="side-card">
+      <h4>📊 Dados globais</h4>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-value">~33%</span>
+          <span class="stat-label">Pop. mundial exposta</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">~2 bi</span>
+          <span class="stat-label">Pessoas infectadas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">80%</span>
+          <span class="stat-label">Assintomáticos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">1ª</span>
+          <span class="stat-label">Causa cegueira infec.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h4>🔗 Formas de transmissão</h4>
+      <div class="tag-list">
+        <span class="tag">Água contaminada</span>
+        <span class="tag">Carne crua</span>
+        <span class="tag">Fezes de gato</span>
+        <span class="tag">Solo contaminado</span>
+        <span class="tag green">Vertical (mãe→bebê)</span>
+        <span class="tag green">Transfusão de sangue</span>
+        <span class="tag green">Transplante de órgão</span>
+        <span class="tag green">Alimentos sem higiene</span>
+      </div>
+    </div>
+
+    <div class="cta-card">
+      <h4>Avalie seu risco</h4>
+      <p>Responda algumas perguntas e descubra seu nível de exposição à toxoplasmose.</p>
+      <a href="entrevista.html" class="cta-btn">Iniciar avaliação →</a>
+    </div>
+
+    <div class="side-card">
+      <h4>📖 Glossário rápido</h4>
+      <div class="glossario-list">
+        <div class="glossario-item">
+          <strong>Oocisto</strong>
+          <span>Forma esporulada do parasita eliminada nas fezes de gatos infectados.</span>
+        </div>
+        <div class="glossario-item">
+          <strong>Sorologia IgM/IgG</strong>
+          <span>Exames de sangue que detectam anticorpos contra o Toxoplasma gondii.</span>
+        </div>
+        <div class="glossario-item">
+          <strong>Toxoplasmose congênita</strong>
+          <span>Transmissão do parasita da mãe ao feto durante a gestação.</span>
+        </div>
+        <div class="glossario-item">
+          <strong>Fase latente</strong>
+          <span>Período em que o parasita permanece em cistos sem causar sintomas.</span>
+        </div>
+        <div class="glossario-item">
+          <strong>Imunodeprimido</strong>
+          <span>Pessoa com sistema imune enfraquecido, mais vulnerável a complicações.</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-icon">🧬</div>
+    <strong>ToxoPrev</strong>
+  </div>
+  <p>Plataforma digital de conscientização, prevenção e informação sobre toxoplasmose.</p>
+  <p style="margin-top: 8px; font-size: 12px; opacity: 0.7;">
+    As informações têm caráter educativo e não substituem consulta médica profissional.
+  </p>
+</footer>
+
+</body>
+</html>
