@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root{
+  --accent: #0e9f6e;
+  --accent-light: #d1fae5;
+  --accent-dark: #065f46;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#f5f7fb;
+  color:#0d1b2a;
+}
+
+/* =========================
+   TOPO
+========================= */
+
+.top-buttons{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 30px;
+  background:#fff;
+  border-bottom:1px solid #dde5f0;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+.tratamento-btn{
+  background:var(--accent);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.2s;
+}
+
+.tratamento-btn:hover{
+  background:var(--accent-dark);
+}
+
+.voltar-btn{
+  background:#fff;
+  border:1px solid #dde5f0;
+  padding:10px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#3d4f62;
+  font-weight:600;
+}
+
+/* =========================
+   ÁREA
+========================= */
+
+.entrevista-page{
+  display:flex;
+  justify-content:center;
+  padding:50px 20px;
+}
+
+.entrevista-box{
+  width:100%;
+  max-width:760px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.entrevista-top{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.entrevista-tag{
+  display:inline-block;
+  background:var(--accent-light);
+  color:var(--accent);
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.entrevista-top h2{
+  font-size:38px;
+  font-family:'Instrument Serif',serif;
+  margin-bottom:10px;
+}
+
+.descricao{
+  color:#3d4f62;
+  line-height:1.7;
+}
+
+/* =========================
+   PROGRESSO
+========================= */
+
+.progress-area{
+  margin-bottom:30px;
+}
+
+.progress-bar{
+  width:100%;
+  height:10px;
+  background:#dde5f0;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,var(--accent),#34d399);
+  transition:.3s;
+}
+
+#porcentagem{
+  display:block;
+  margin-top:8px;
+  font-size:13px;
+  color:#3d4f62;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.question-card{
+  background:#fff;
+  border:1px solid #dde5f0;
+  border-radius:28px;
+  padding:35px;
+  box-shadow:0 8px 32px rgba(0,0,0,.05);
+}
+
+.question-number{
+  display:inline-block;
+  background:var(--accent-light);
+  color:var(--accent);
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.question-card h3{
+  font-size:30px;
+  line-height:1.4;
+  margin-bottom:25px;
+}
+
+/* =========================
+   OPÇÕES
+========================= */
+
+.opcoes{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.option-btn{
+  width:100%;
+  padding:15px;
+  border-radius:16px;
+  border:1px solid #dde5f0;
+  background:#f5f7fb;
+  font-size:15px;
+  font-weight:600;
+  color:#3d4f62;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.option-btn:hover{
+  background:var(--accent-light);
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateX(4px);
+}
+
+/* =========================
+   INPUT
+========================= */
+
+#inputArea input{
+  width:100%;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid #dde5f0;
+  margin-bottom:12px;
+  font-size:15px;
+}
+
+#inputArea input:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+.primary-btn{
+  width:100%;
+  border:none;
+  padding:15px;
+  border-radius:16px;
+  background:var(--accent);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  background:var(--accent-dark);
+}
+
+/* =========================
+   RESULTADO
+========================= */
+
+.resultado-final{
+  background:#fff;
+  border-radius:28px;
+  padding:45px 30px;
+  text-align:center;
+  border:1px solid #dde5f0;
+  box-shadow:0 8px 32px rgba(0,0,0,.05);
+}
+
+.resultado-final h2{
+  font-size:34px;
+  margin-bottom:15px;
+  font-family:'Instrument Serif',serif;
+}
+
+.resultado-final p{
+  color:#3d4f62;
+  line-height:1.7;
+  margin:10px 0;
+}
+
+.alerta-tratamento{
+  margin-top:20px;
+  background:var(--accent-light);
+  border:1px solid #b7f0d7;
+  padding:18px;
+  border-radius:18px;
+  color:var(--accent-dark);
+  font-weight:600;
+}
+
+.resultado-acoes{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.btn-tratamento{
+  background:var(--accent);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.btn-tratamento:hover{
+  background:var(--accent-dark);
+}
+
+.btn-refazer{
+  background:#fff;
+  border:1px solid #dde5f0;
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:768px){
+
+  .top-buttons{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .question-card{
+    padding:25px;
+  }
+
+  .question-card h3{
+    font-size:24px;
+  }
+
+}
