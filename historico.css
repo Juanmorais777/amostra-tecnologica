@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --cobalt:#1a3cff;
+  --cobalt-dark:#0f26cc;
+  --cobalt-soft:#e8ecff;
+
+  --teal:#00c9a7;
+  --teal-soft:#d4f7f0;
+
+  --amber:#ff9900;
+  --amber-soft:#fff3dc;
+
+  --red:#ff4d67;
+  --red-soft:#ffe5ea;
+
+  --surface:#f5f7fb;
+  --card:#ffffff;
+
+  --ink:#0d1b2a;
+  --ink-mid:#4c6075;
+  --ink-light:#7d91a7;
+
+  --border:#dde5f0;
+
+  --shadow-sm:
+  0 4px 18px rgba(0,0,0,.05);
+
+  --shadow-md:
+  0 14px 40px rgba(26,60,255,.12);
+
+  --radius-sm:14px;
+  --radius-md:22px;
+  --radius-lg:32px;
+
+  --font-serif:
+  'Instrument Serif', serif;
+
+  --font-sans:
+  'DM Sans', sans-serif;
+
+}
+
+body{
+
+  background:var(--surface);
+
+  font-family:var(--font-sans);
+
+  color:var(--ink);
+
+  min-height:100vh;
+
+  padding:40px;
+
+}
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topo{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:20px;
+
+  margin-bottom:40px;
+
+}
+
+.mini-tag{
+
+  display:inline-block;
+
+  background:var(--cobalt-soft);
+
+  color:var(--cobalt);
+
+  padding:8px 16px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:.05em;
+
+  margin-bottom:18px;
+
+  text-transform:uppercase;
+
+}
+
+.topo h1{
+
+  font-family:var(--font-serif);
+
+  font-size:58px;
+
+  line-height:1;
+
+  margin-bottom:12px;
+
+  color:var(--ink);
+
+}
+
+.topo p{
+
+  color:var(--ink-mid);
+
+  font-size:16px;
+
+  line-height:1.7;
+
+}
+
+.topo-buttons{
+
+  display:flex;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+
+}
+
+.topo-buttons a,
+.topo-buttons button{
+
+  border:none;
+
+  outline:none;
+
+  cursor:pointer;
+
+  text-decoration:none;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  color:var(--ink);
+
+  padding:14px 22px;
+
+  border-radius:16px;
+
+  font-weight:600;
+
+  font-size:14px;
+
+  transition:.25s;
+
+  box-shadow:var(--shadow-sm);
+
+}
+
+.topo-buttons a:hover,
+.topo-buttons button:hover{
+
+  transform:translateY(-3px);
+
+  background:var(--cobalt);
+
+  color:#fff;
+
+  border-color:var(--cobalt);
+
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:22px;
+
+  margin-bottom:34px;
+
+}
+
+.stat-card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:var(--radius-md);
+
+  padding:34px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:var(--shadow-sm);
+
+  transition:.3s;
+
+}
+
+.stat-card::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:5px;
+
+  background:
+  linear-gradient(
+    90deg,
+    var(--cobalt),
+    var(--teal)
+  );
+
+}
+
+.stat-card:hover{
+
+  transform:translateY(-5px);
+
+  box-shadow:var(--shadow-md);
+
+}
+
+.stat-card h2{
+
+  font-size:54px;
+
+  color:var(--cobalt);
+
+  margin-bottom:8px;
+
+  font-weight:700;
+
+}
+
+.stat-card p{
+
+  color:var(--ink-mid);
+
+  font-size:15px;
+
+  font-weight:500;
+
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.historico-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(360px,1fr));
+
+  gap:24px;
+
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:var(--radius-lg);
+
+  padding:28px;
+
+  box-shadow:var(--shadow-sm);
+
+  transition:.3s;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+.card::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:5px;
+
+}
+
+.card.alto::before{
+
+  background:var(--red);
+
+}
+
+.card.medio::before{
+
+  background:var(--amber);
+
+}
+
+.card.baixo::before{
+
+  background:var(--teal);
+
+}
+
+.card:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:var(--shadow-md);
+
+}
+
+.card-top{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:14px;
+
+  margin-bottom:22px;
+
+}
+
+.tipo{
+
+  background:var(--cobalt-soft);
+
+  color:var(--cobalt);
+
+  padding:8px 16px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+.status{
+
+  background:var(--teal-soft);
+
+  color:#007f67;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+.card h2{
+
+  font-size:28px;
+
+  line-height:1.2;
+
+  margin-bottom:16px;
+
+  color:var(--ink);
+
+}
+
+.card p{
+
+  color:var(--ink-mid);
+
+  line-height:1.8;
+
+  font-size:15px;
+
+  margin-bottom:24px;
+
+}
+
+/* =========================================================
+   INFOS
+========================================================= */
+
+.infos{
+
+  display:grid;
+
+  gap:14px;
+
+  border-top:1px solid var(--border);
+
+  padding-top:22px;
+
+}
+
+.infos div{
+
+  background:var(--surface);
+
+  border-radius:14px;
+
+  padding:14px 16px;
+
+  font-size:14px;
+
+  line-height:1.6;
+
+  color:var(--ink-mid);
+
+  border:1px solid var(--border);
+
+}
+
+.infos strong{
+
+  color:var(--ink);
+
+}
+
+/* =========================================================
+   VAZIO
+========================================================= */
+
+.vazio{
+
+  width:100%;
+
+  grid-column:1/-1;
+
+  background:var(--card);
+
+  border-radius:var(--radius-lg);
+
+  border:1px solid var(--border);
+
+  padding:90px 40px;
+
+  text-align:center;
+
+  box-shadow:var(--shadow-sm);
+
+}
+
+.vazio h2{
+
+  font-family:var(--font-serif);
+
+  font-size:48px;
+
+  margin-bottom:12px;
+
+  color:var(--ink);
+
+}
+
+.vazio p{
+
+  color:var(--ink-mid);
+
+  font-size:16px;
+
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:900px){
+
+  body{
+
+    padding:24px;
+
+  }
+
+  .topo{
+
+    flex-direction:column;
+
+  }
+
+  .topo h1{
+
+    font-size:44px;
+
+  }
+
+}
+
+@media(max-width:600px){
+
+  .historico-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .card{
+
+    padding:22px;
+
+  }
+
+  .topo h1{
+
+    font-size:38px;
+
+  }
+
+  .stat-card h2{
+
+    font-size:42px;
+
+  }
+
+}

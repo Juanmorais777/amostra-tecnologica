@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Histórico de Denúncias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="favicon2 (2).png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="historico.css">
+
+</head>
+
+<body>
+
+<header class="topo">
+
+  <div>
+
+    <span class="mini-tag">
+      Painel Inteligente
+    </span>
+
+    <h1>
+      Histórico de Denúncias
+    </h1>
+
+    <p>
+      Visualize todas as denúncias registradas no sistema.
+    </p>
+
+  </div>
+
+  <div class="topo-buttons">
+
+    <button onclick="limparHistorico()">
+      Limpar Histórico
+    </button>
+
+    <a href="denuncia.html">
+      ← Voltar
+    </a>
+
+  </div>
+
+</header>
+
+<section class="painel">
+
+  <div class="stats">
+
+    <div class="stat-card">
+      <h2 id="totalDenuncias">0</h2>
+      <p>Denúncias</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 id="altoRisco">0</h2>
+      <p>Alto Risco</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 id="anonimas">0</h2>
+      <p>Anônimas</p>
+    </div>
+
+  </div>
+
+  <div class="historico-grid" id="historico"></div>
+
+</section>
+
+<script>
+
+  // ─── Lê o histórico salvo pelo denuncia.html ───────────────────────────────
+  function carregarHistorico() {
+    return JSON.parse(localStorage.getItem("historicoDenuncias")) || [];
+  }
+
+  // ─── Mapeia prioridade → classe CSS do card ────────────────────────────────
+  function classeCard(prioridade) {
+    if (prioridade === "ALTO")  return "alto";
+    if (prioridade === "MÉDIO") return "medio";
+    return "baixo";
+  }
+
+  // ─── Renderiza um card de denúncia ────────────────────────────────────────
+  function renderCard(item) {
+    return `
+      <div class="card ${classeCard(item.prioridade)}">
+
+        <div class="card-top">
+          <span class="tipo">${item.tipo}</span>
+          <span class="status">${item.status}</span>
+        </div>
+
+        <h2>${item.local}</h2>
+
+        <p>${item.descricao}</p>
+
+        <div class="infos">
+
+          <div>
+            <strong>ID:</strong>
+            ${item.id}
+          </div>
+
+          <div>
+            <strong>Data:</strong>
+            ${item.data}
+          </div>
+
+          <div>
+            <strong>Nome:</strong>
+            ${item.nome}
+          </div>
+
+          <div>
+            <strong>Email:</strong>
+            ${item.email}
+          </div>
+
+          <div>
+            <strong>Modo:</strong>
+            ${item.anonimo ? "Anônimo" : "Identificado"}
+          </div>
+
+          <div>
+            <strong>Prioridade:</strong>
+            ${item.prioridade}
+          </div>
+
+        </div>
+
+      </div>
+    `;
+  }
+
+  // ─── Atualiza os contadores do topo ───────────────────────────────────────
+  function atualizarStats(lista) {
+    document.getElementById("totalDenuncias").innerHTML = lista.length;
+
+    document.getElementById("altoRisco").innerHTML =
+      lista.filter(item => item.prioridade === "ALTO").length;
+
+    document.getElementById("anonimas").innerHTML =
+      lista.filter(item => item.anonimo).length;
+  }
+
+  // ─── Renderiza toda a lista na tela ───────────────────────────────────────
+  function renderizarHistorico() {
+    const historico = carregarHistorico();
+    const area      = document.getElementById("historico");
+
+    atualizarStats(historico);
+
+    if (historico.length === 0) {
+      area.innerHTML = `
+        <div class="vazio">
+          <h2>Nenhuma denúncia encontrada</h2>
+          <p>As denúncias enviadas aparecerão aqui.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Mais recente no topo (reverse não muta o original)
+    area.innerHTML = [...historico]
+      .reverse()
+      .map(renderCard)
+      .join("");
+  }
+
+  // ─── Limpa tudo e recarrega a página ─────────────────────────────────────
+  function limparHistorico() {
+    const confirmar = confirm("Deseja apagar todo o histórico?");
+    if (confirmar) {
+      localStorage.removeItem("historicoDenuncias");
+      location.reload();
+    }
+  }
+
+  // ─── Inicializa ───────────────────────────────────────────────────────────
+  renderizarHistorico();
+
+</script>
+
+</body>
+</html>
