@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ToxoPrev — Plataforma de Prevenção</title>
-  <link rel="icon" type="image/png" href="favicon2 (2).png">
+  <link rel="icon" type="image/png" href="favicon2.png">
   <link rel="stylesheet" href="inicio.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
 </head>
@@ -27,6 +27,7 @@
     <a href="toxoplasmose.html">Toxoplasmose</a>
     <a href="entrevista.html">Avaliação</a>
     <a href="duvida.html">Dúvidas</a>
+    <a href="tratamento.html">Tratamentos</a>
     <a href="denuncia.html" class="nav-cta">Denunciar</a>
   </nav>
 </header>
@@ -240,66 +241,10 @@
 
 </main>
 
-<!-- CHAT WIDGET -->
-<div id="chat-wrapper">
-  <div id="chat-window">
-    <div class="chat-header">
-      <span>💬 Iasmim ToxoPrev</span>
-      <button id="close-chat" aria-label="Fechar chat">✕</button>
-    </div>
-    <div id="chat-messages">
-      <div class="message bot">
-        Olá! Sou o assistente do ToxoPrev. Como posso ajudar você hoje?
-      </div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chat-input-field" placeholder="Digite sua dúvida..." aria-label="Mensagem">
-      <button id="send-btn">Enviar</button>
-    </div>
-  </div>
-  <button id="chat-toggle" aria-label="Abrir chat">💬</button>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <p><strong>ToxoPrev</strong> · Plataforma de conscientização e prevenção da toxoplasmose</p>
   <p>As informações disponibilizadas possuem caráter educativo e não substituem orientação médica profissional.</p>
 </footer>
-
-<script>
-  const chatToggle = document.getElementById('chat-toggle');
-  const chatWindow = document.getElementById('chat-window');
-  const closeChat  = document.getElementById('close-chat');
-  const sendBtn    = document.getElementById('send-btn');
-  const inputField = document.getElementById('chat-input-field');
-  const messages   = document.getElementById('chat-messages');
-
-  chatToggle.onclick = () => chatWindow.classList.toggle('active');
-  closeChat.onclick  = () => chatWindow.classList.remove('active');
-
-  function sendMessage() {
-    const text = inputField.value.trim();
-    if (!text) return;
-
-    const userMsg = document.createElement('div');
-    userMsg.className = 'message user';
-    userMsg.textContent = text;
-    messages.appendChild(userMsg);
-    inputField.value = '';
-    messages.scrollTop = messages.scrollHeight;
-
-    setTimeout(() => {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'message bot';
-      botMsg.textContent = 'Obrigado pela sua pergunta! Para dúvidas detalhadas, acesse a seção "Dúvidas" ou inicie sua avaliação.';
-      messages.appendChild(botMsg);
-      messages.scrollTop = messages.scrollHeight;
-    }, 900);
-  }
-
-  sendBtn.onclick = sendMessage;
-  inputField.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
-</script>
-
 </body>
 </html>
